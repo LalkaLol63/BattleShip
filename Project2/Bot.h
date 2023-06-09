@@ -5,22 +5,22 @@
 
 class Bot {
 protected:
-	int Botx; // координати для вистрілу
+	int Botx; // РєРѕРѕСЂРґРёРЅР°С‚Рё РґР»СЏ РІРёСЃС‚СЂС–Р»Сѓ
 	int Boty; 
 	MainArea BotArea;
 	Area BotMask;
 
-	virtual bool find_new_coordinates() = 0; // знайти нові координати для вистрілу
+	virtual bool find_new_coordinates() = 0; // Р·РЅР°Р№С‚Рё РЅРѕРІС– РєРѕРѕСЂРґРёРЅР°С‚Рё РґР»СЏ РІРёСЃС‚СЂС–Р»Сѓ
 
-	virtual bool Bot_attack(MainArea& Board) = 0; //функція атаки бота
+	virtual bool Bot_attack(MainArea& Board) = 0; //С„СѓРЅРєС†С–СЏ Р°С‚Р°РєРё Р±РѕС‚Р°
 
 public:
 
 	void BotSetup();
 	
-	void Bot_move(MainArea& Board);//функція ходу бота
+	void Bot_move(MainArea& Board);//С„СѓРЅРєС†С–СЏ С…РѕРґСѓ Р±РѕС‚Р°
 
-	Bot(); //конструктор бота
+	Bot(); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РѕС‚Р°
 
 	int getNumOfAlivedShips();
 
