@@ -1,15 +1,15 @@
 #include "EasyBot.h"
 
-bool EasyBot::find_new_coordinates()  // знайти нові координати для вистрілу
+bool EasyBot::find_new_coordinates()  // Р·РЅР°Р№С‚Рё РЅРѕРІС– РєРѕРѕСЂРґРёРЅР°С‚Рё РґР»СЏ РІРёСЃС‚СЂС–Р»Сѓ
 {
-    do//рандомно знаходимо нові координати
+    do//СЂР°РЅРґРѕРјРЅРѕ Р·РЅР°С…РѕРґРёРјРѕ РЅРѕРІС– РєРѕРѕСЂРґРёРЅР°С‚Рё
     {
         Botx = rand() % 10;
         Boty = rand() % 10;
     }while (BotMask.getCellStatus(Botx, Boty) != empty);
 	return true;
 }
-bool EasyBot::Bot_attack(MainArea& Board) //функція атаки бота
+bool EasyBot::Bot_attack(MainArea& Board) //С„СѓРЅРєС†С–СЏ Р°С‚Р°РєРё Р±РѕС‚Р°
 {
 	if (Board.AttackCheck(Botx, Boty))
 	{
