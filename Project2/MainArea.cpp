@@ -9,7 +9,7 @@ bool MainArea::placeShip(int startX, int startY, int length, Orientation orienta
 	int x = startX;
 	int y = startY;
 
-	// Перевірка границь матриці
+	// РџРµСЂРµРІС–СЂРєР° РіСЂР°РЅРёС†СЊ РјР°С‚СЂРёС†С–
 	bool isWithinBounds = true;
 	switch (orientation) {
 	case Orientation::NORTH: isWithinBounds = (startY + length <= rows); break;
@@ -18,19 +18,19 @@ bool MainArea::placeShip(int startX, int startY, int length, Orientation orienta
 	case Orientation::SOUTH: isWithinBounds = (startY - length + 1 >= 0); break;
 	}
 
-	if (isWithinBounds) //якщо сам корабель потрапляє в матрицю, то робимо перевірку всіх клітинок корабля, та клітинок навколо
+	if (isWithinBounds) //СЏРєС‰Рѕ СЃР°Рј РєРѕСЂР°Р±РµР»СЊ РїРѕС‚СЂР°РїР»СЏС” РІ РјР°С‚СЂРёС†СЋ, С‚Рѕ СЂРѕР±РёРјРѕ РїРµСЂРµРІС–СЂРєСѓ РІСЃС–С… РєР»С–С‚РёРЅРѕРє РєРѕСЂР°Р±Р»СЏ, С‚Р° РєР»С–С‚РёРЅРѕРє РЅР°РІРєРѕР»Рѕ
 	{
 
 		for (int i = 0; i < length; i++)
 		{
 			if (matrix[x][y].getStatus() != empty)
 			{
-				return false;  // Клітинка є точкою, або зайнята палубою
+				return false;  // РљР»С–С‚РёРЅРєР° С” С‚РѕС‡РєРѕСЋ, Р°Р±Рѕ Р·Р°Р№РЅСЏС‚Р° РїР°Р»СѓР±РѕСЋ
 			}
 
 			if (isShipNearBy(x, y))
 			{
-				return false; // Клітинки навколо є палубами
+				return false; // РљР»С–С‚РёРЅРєРё РЅР°РІРєРѕР»Рѕ С” РїР°Р»СѓР±Р°РјРё
 			}
 
 			switch (orientation) {
@@ -41,14 +41,14 @@ bool MainArea::placeShip(int startX, int startY, int length, Orientation orienta
 			}
 		}
 
-		// Якщо перевірка пройдена, розміщуємо корабель
+		// РЇРєС‰Рѕ РїРµСЂРµРІС–СЂРєР° РїСЂРѕР№РґРµРЅР°, СЂРѕР·РјС–С‰СѓС”РјРѕ РєРѕСЂР°Р±РµР»СЊ
 		Ship* newShip = new Ship(length, orientation, startX, startY);
 		ships.push_back(newShip);
 		addShip(*newShip);
 		return true;
 	}
 
-	return false;  // Вихід за границі поля
+	return false;  // Р’РёС…С–Рґ Р·Р° РіСЂР°РЅРёС†С– РїРѕР»СЏ
 }
 
 Ship* MainArea::ShipsCheck(int x, int y)
@@ -97,7 +97,7 @@ bool MainArea::isShipNearBy(int x, int y) {
 		for (int j = y - 1; j <= y + 1; j++) {
 			if (!isEdgeCase(i, j)) {
 				if (matrix[i][j].getStatus() == deck) {
-					return true;  // Клітка навколо є палубою
+					return true;  // РљР»С–С‚РєР° РЅР°РІРєРѕР»Рѕ С” РїР°Р»СѓР±РѕСЋ
 				}
 			}
 		}
@@ -132,7 +132,7 @@ void MainArea::addShip(Ship& shipToAdd) {
 		case Orientation::SOUTH: {y--; break; }
 		}
 	}
-	AreaUpdate(shipToAdd); //заповнити корабель точками по контуру
+	AreaUpdate(shipToAdd); //Р·Р°РїРѕРІРЅРёС‚Рё РєРѕСЂР°Р±РµР»СЊ С‚РѕС‡РєР°РјРё РїРѕ РєРѕРЅС‚СѓСЂСѓ
 }
 
 int MainArea::getNumOfShipsAlive()
