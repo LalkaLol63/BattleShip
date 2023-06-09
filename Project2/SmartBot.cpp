@@ -4,7 +4,7 @@ SmartBot::SmartBot():Bot(), FindedX(0), FindedY(0), bot_find_ship(false)
 {
     shipToFind = { 4, 3, 3, 2, 2, 2, 1 };
 }
-bool SmartBot::find_new_coordinates()  // знайти нові координати для вистрілу
+bool SmartBot::find_new_coordinates()  // Р·РЅР°Р№С‚Рё РЅРѕРІС– РєРѕРѕСЂРґРёРЅР°С‚Рё РґР»СЏ РІРёСЃС‚СЂС–Р»Сѓ
 {
     if (!bot_find_ship)
     {
@@ -17,7 +17,7 @@ bool SmartBot::find_new_coordinates()  // знайти нові координати для вистрілу
         case NORTH:
             if (!BotMask.isEdgeCase(Botx, Boty + 1) && BotMask.getCellStatus(Botx, Boty + 1) == empty)
             {
-                Boty++; //якщо підходить то змінюємо значення координат для вистрілу
+                Boty++; //СЏРєС‰Рѕ РїС–РґС…РѕРґРёС‚СЊ С‚Рѕ Р·РјС–РЅСЋС”РјРѕ Р·РЅР°С‡РµРЅРЅСЏ РєРѕРѕСЂРґРёРЅР°С‚ РґР»СЏ РІРёСЃС‚СЂС–Р»Сѓ
                 return true;
             }
             break;
@@ -44,13 +44,13 @@ bool SmartBot::find_new_coordinates()  // знайти нові координати для вистрілу
             break;
         }
         Boty = FindedY;
-        Botx = FindedX;//якщо поточний напрямок не підходить 
+        Botx = FindedX;//СЏРєС‰Рѕ РїРѕС‚РѕС‡РЅРёР№ РЅР°РїСЂСЏРјРѕРє РЅРµ РїС–РґС…РѕРґРёС‚СЊ 
         currentDir++;
 
         return false;
     }
 }
-bool SmartBot::Bot_attack(MainArea& Board) //функція атаки бота
+bool SmartBot::Bot_attack(MainArea& Board) //С„СѓРЅРєС†С–СЏ Р°С‚Р°РєРё Р±РѕС‚Р°
 {
     if (Board.AttackCheck(Botx, Boty))
     {
@@ -85,14 +85,15 @@ bool SmartBot::Bot_attack(MainArea& Board) //функція атаки бота
 bool SmartBot::coordinatesCheck(int x, int y)
 {
     int shipLength = shipToFind.front();
-    // Перевіряємо чи може точка бути стартовою для корабля заданої довжини
+    // РџРµСЂРµРІС–СЂСЏС”РјРѕ С‡Рё РјРѕР¶Рµ С‚РѕС‡РєР° Р±СѓС‚Рё СЃС‚Р°СЂС‚РѕРІРѕСЋ РґР»СЏ РєРѕСЂР°Р±Р»СЏ Р·Р°РґР°РЅРѕС— РґРѕРІР¶РёРЅРё
     for (int i = 0; i < 4; i++) 
     {
         bool isValid = true;
         int currentX = x;
         int currentY = y;
 
-        // Перевіряємо чи може точка бути стартовою для корабля заданого напрямку
+        
+        // РџРµСЂРµРІС–СЂСЏС”РјРѕ С‡Рё РјРѕР¶Рµ С‚РѕС‡РєР° Р±СѓС‚Рё СЃС‚Р°СЂС‚РѕРІРѕСЋ РґР»СЏ РєРѕСЂР°Р±Р»СЏ Р·Р°РґР°РЅРѕРіРѕ РЅР°РїСЂСЏРјРєСѓ
         for (int j = 0; j < shipLength; j++) {
             switch (i) {
             case Orientation::NORTH:
@@ -138,7 +139,7 @@ bool SmartBot::vectorUpdate(int numDeck)
 
 bool SmartBot::find_rand_coordinates()
 {
-    do//рандомно знаходимо нові координати
+    do//СЂР°РЅРґРѕРјРЅРѕ Р·РЅР°С…РѕРґРёРјРѕ РЅРѕРІС– РєРѕРѕСЂРґРёРЅР°С‚Рё
     {
         Botx = rand() % 10;
         Boty = rand() % 10;
