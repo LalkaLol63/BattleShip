@@ -4,8 +4,8 @@ class EasyBot : public Bot
 {
 
 private: 
-	bool find_new_coordinates() override; // знайти нові координати для вистрілу
+	bool find_new_coordinates() override; // Р·РЅР°Р№С‚Рё РЅРѕРІС– РєРѕРѕСЂРґРёРЅР°С‚Рё РґР»СЏ РІРёСЃС‚СЂС–Р»Сѓ
 
-	bool Bot_attack(MainArea& Board) override; //функція атаки бота
+	bool Bot_attack(MainArea& Board) override; //С„СѓРЅРєС†С–СЏ Р°С‚Р°РєРё Р±РѕС‚Р°
 };
 
