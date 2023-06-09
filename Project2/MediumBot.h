@@ -3,14 +3,13 @@
 class MediumBot : public Bot
 {
 private:
-	int FindedX;
-	int FindedY;// координати новознайденої палуби
+	int FindedY;// РєРѕРѕСЂРґРёРЅР°С‚Рё РЅРѕРІРѕР·РЅР°Р№РґРµРЅРѕС— РїР°Р»СѓР±Рё
 
-	bool bot_find_ship; // прапор чи знаходится бот в режимі пошуку корабля
+	bool bot_find_ship; // РїСЂР°РїРѕСЂ С‡Рё Р·РЅР°С…РѕРґРёС‚СЃСЏ Р±РѕС‚ РІ СЂРµР¶РёРјС– РїРѕС€СѓРєСѓ РєРѕСЂР°Р±Р»СЏ
 	int currentDir;
-	bool find_new_coordinates() override; // знайти нові координати для вистрілу
+	bool find_new_coordinates() override; // Р·РЅР°Р№С‚Рё РЅРѕРІС– РєРѕРѕСЂРґРёРЅР°С‚Рё РґР»СЏ РІРёСЃС‚СЂС–Р»Сѓ
 	bool find_rand_coordinates();
-	bool Bot_attack(MainArea& Board) override; //функція атаки бота
+	bool Bot_attack(MainArea& Board) override; //С„СѓРЅРєС†С–СЏ Р°С‚Р°РєРё Р±РѕС‚Р°
 public:
 	MediumBot();
 };
