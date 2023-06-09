@@ -4,7 +4,7 @@ MediumBot::MediumBot() :Bot(), FindedX(0), FindedY(0), bot_find_ship(false)
 {
 }
 
-bool MediumBot::find_new_coordinates()  // знайти нові координати для вистрілу
+bool MediumBot::find_new_coordinates()  // Р·РЅР°Р№С‚Рё РЅРѕРІС– РєРѕРѕСЂРґРёРЅР°С‚Рё РґР»СЏ РІРёСЃС‚СЂС–Р»Сѓ
 {
 	if (!bot_find_ship)
 	{
@@ -17,7 +17,7 @@ bool MediumBot::find_new_coordinates()  // знайти нові координати для вистрілу
         case NORTH:
             if (!BotMask.isEdgeCase(Botx, Boty+ 1) && BotMask.getCellStatus(Botx, Boty + 1) == empty)
             {
-                Boty++; //якщо підходить то змінюємо значення координат для вистрілу
+                Boty++; //СЏРєС‰Рѕ РїС–РґС…РѕРґРёС‚СЊ С‚Рѕ Р·РјС–РЅСЋС”РјРѕ Р·РЅР°С‡РµРЅРЅСЏ РєРѕРѕСЂРґРёРЅР°С‚ РґР»СЏ РІРёСЃС‚СЂС–Р»
                 return true;
             }
             break;
@@ -44,13 +44,13 @@ bool MediumBot::find_new_coordinates()  // знайти нові координати для вистрілу
             break;
         }
         Boty = FindedY;
-        Botx = FindedX;//якщо поточний напрямок не підходить 
+        Botx = FindedX;//СЏРєС‰Рѕ РїРѕС‚РѕС‡РЅРёР№ РЅР°РїСЂСЏРјРѕРє РЅРµ РїС–РґС…РѕРґРёС‚СЊ 
         currentDir++;
      
         return false;
 	}
 }
-bool MediumBot::Bot_attack(MainArea& Board) //функція атаки бота
+bool MediumBot::Bot_attack(MainArea& Board) //С„СѓРЅРєС†С–СЏ Р°С‚Р°РєРё Р±РѕС‚Р°
 {
 	if (Board.AttackCheck(Botx, Boty))
 	{
@@ -84,7 +84,7 @@ bool MediumBot::Bot_attack(MainArea& Board) //функція атаки бота
 
 bool MediumBot::find_rand_coordinates()
 {
-    do//рандомно знаходимо нові координати
+    do//СЂР°РЅРґРѕРјРЅРѕ Р·РЅР°С…РѕРґРёРјРѕ РЅРѕРІС– РєРѕРѕСЂРґРёРЅР°С‚Рё
     {
         Botx = rand() % 10;
         Boty = rand() % 10;
